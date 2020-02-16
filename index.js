@@ -20,7 +20,7 @@ async function run() {
     //   text: ""
     // };
 
-    const reviewers = await octokit.pulls.list({
+    const reviewers = await octokit.issues.listForRepo({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo
     });
