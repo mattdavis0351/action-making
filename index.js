@@ -32,7 +32,7 @@ async function run() {
     const reviewers = await request(options);
     console.log(reviewers);
   } catch (err) {
-    core.debug(err);
+    // core.debug(err);
   }
 }
 
