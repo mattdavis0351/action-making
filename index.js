@@ -22,7 +22,7 @@ const octokit = new github.GitHub(GITHUB_TOKEN);
 async function run() {
   const {
     reviewers: { requested_reviewers }
-  } = octokit.pulls.list({
+  } = await octokit.pulls.list({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo
   });
