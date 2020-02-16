@@ -9,6 +9,10 @@ inputs:
     description: The OAuth token of the slack bot, stored as repo secret
     required: true
     default: "you didn't supply a token "
+  repoToken:
+    description: this is an authentication token
+    required: true
+    default: no token
 
 runs:
   using: "node12"
