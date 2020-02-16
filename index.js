@@ -11,17 +11,18 @@ const { WebClient } = require("@slack/web-api");
 // const currentTime = new Date().toTimeString();
 async function run() {
   try {
-    const GITHUB_TOKEN = core.getInput("repoToken");
+    // const GITHUB_TOKEN = core.getInput("repoToken");
+    const token = core.getInput("repoToken");
     // const SLACK_BOT_TOKEN = core.getInput("slackAuth");
     // const SLACK_CHANNEL = core.getInput("channel");
-    const octokit = new github.GitHub(GITHUB_TOKEN);
+    // const octokit = new github.GitHub(GITHUB_TOKEN);
 
     const options = {
       //   channel: SLACK_CHANNEL,
       //   text: ""
       method: "GET",
       uri: `https://github.com/${process.env.GITHUB_ACTOR}/repos/${process.env.GITHUB_ACTOR}/${process.env.GITHUB_REPO}/pulls`,
-      auth: `token ${GITHUB_TOKEN}`
+      auth: `token ${token}`
     };
 
     // const reviewers = await octokit.issues.listForRepo({
