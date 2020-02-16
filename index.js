@@ -1,5 +1,5 @@
 // const request = require("request-promise");
-const core = require("@actions/core");
+// const core = require("@actions/core");
 // const github = require("@actions/github");
 const request = require("request-promise");
 const { WebClient } = require("@slack/web-api");
@@ -12,7 +12,7 @@ const { WebClient } = require("@slack/web-api");
 async function run() {
   try {
     // const GITHUB_TOKEN = core.getInput("repoToken");
-    const token = core.getInput("repoToken");
+    const token = process.env.REPOTOKEN;
     // const SLACK_BOT_TOKEN = core.getInput("slackAuth");
     // const SLACK_CHANNEL = core.getInput("channel");
     // const octokit = new github.GitHub(GITHUB_TOKEN);
