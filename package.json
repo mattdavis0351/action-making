@@ -1,0 +1,27 @@
+{
+  "name": "action-making",
+  "version": "1.0.0",
+  "description": "on cron - 24hr looked for open prs @mention in the pr anyone that is assigned that it needs review",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattdavis0351/action-making.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattdavis0351/action-making/issues"
+  },
+  "homepage": "https://github.com/mattdavis0351/action-making#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.0",
+    "@slack/web-api": "^5.7.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}
