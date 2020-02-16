@@ -16,15 +16,19 @@ const octokit = new github.GitHub(GITHUB_TOKEN);
 // The current date
 // const currentTime = new Date().toTimeString();
 async function run() {
-  const GITHUB_TOKEN = core.getInput("repoToken");
-  const SLACK_BOT_TOKEN = core.getInput("slackAuth");
-  const SLACK_CHANNEL = core.getInput("channel");
-  const {
-    reviewers: { requested_reviewers }
-  } = await octokit.pulls.list({
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo
-  });
+  try {
+    const GITHUB_TOKEN = core.getInput("repoToken");
+    const SLACK_BOT_TOKEN = core.getInput("slackAuth");
+    const SLACK_CHANNEL = core.getInput("channel");
+    const {
+      reviewers: { requested_reviewers }
+    } = await octokit.pulls.list({
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo
+    });
+  } catch (err) {
+    core.debug(err);
+  }
 
   console.log(reviewers);
 }
