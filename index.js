@@ -11,7 +11,10 @@ async function run() {
       repo: github.context.repo.repo,
       owner: github.context.repo.owner
     });
-
+    // reviwers[0].requested_reviewers reutrns array of objects of revieweres
+    // login from that object
+    // loop through that array to get everyones login
+    // reviewers.url is link to pull request
     console.log(reviewers[0].requested_reviewers);
   } catch (error) {
     core.setFailed(error.message);
