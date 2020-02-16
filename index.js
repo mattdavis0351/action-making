@@ -3,10 +3,6 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const { WebClient } = require("@slack/web-api");
 
-const GITHUB_TOKEN = core.getInput("repoToken");
-const SLACK_BOT_TOKEN = core.getInput("slackAuth");
-const SLACK_CHANNEL = core.getInput("channel");
-
 const options = {
   channel: SLACK_CHANNEL,
   text: ""
@@ -20,6 +16,9 @@ const octokit = new github.GitHub(GITHUB_TOKEN);
 // The current date
 // const currentTime = new Date().toTimeString();
 async function run() {
+  const GITHUB_TOKEN = core.getInput("repoToken");
+  const SLACK_BOT_TOKEN = core.getInput("slackAuth");
+  const SLACK_CHANNEL = core.getInput("channel");
   const {
     reviewers: { requested_reviewers }
   } = await octokit.pulls.list({
