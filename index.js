@@ -30,7 +30,7 @@ async function run() {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo
     });
-    const reviewers
+    // const reviewers
     console.log(reviewers);
   } catch (err) {
     core.debug(err);
