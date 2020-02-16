@@ -3,22 +3,23 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const { WebClient } = require("@slack/web-api");
 
-const options = {
-  channel: SLACK_CHANNEL,
-  text: ""
-};
-
 // const web = new WebClient(process.env.SLACK_TOKEN);
-const web = new WebClient(process.env.SLACK_BOT_TOKEN);
+// const web = new WebClient(process.env.SLACK_BOT_TOKEN);
 
 // The current date
 // const currentTime = new Date().toTimeString();
 async function run() {
   try {
     const GITHUB_TOKEN = core.getInput("repoToken");
-    const SLACK_BOT_TOKEN = core.getInput("slackAuth");
-    const SLACK_CHANNEL = core.getInput("channel");
+    // const SLACK_BOT_TOKEN = core.getInput("slackAuth");
+    // const SLACK_CHANNEL = core.getInput("channel");
     const octokit = new github.GitHub(GITHUB_TOKEN);
+
+    // const options = {
+    //   channel: SLACK_CHANNEL,
+    //   text: ""
+    // };
+
     const {
       reviewers: { requested_reviewers }
     } = await octokit.pulls.list({
