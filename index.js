@@ -7,11 +7,7 @@ async function run() {
     // const jokeBody = core.getInput("joke");
     const token = core.getInput("repo-token");
     const octokit = new github.GitHub(token);
-    const {
-      reviewers: {
-        data: { requested_reviewers }
-      }
-    } = await octokit.pulls.list({
+    const { data: reviewers } = await octokit.pulls.list({
       repo: github.context.repo.repo,
       owner: github.context.repo.owner
     });
