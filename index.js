@@ -12,7 +12,7 @@ async function run() {
       owner: github.context.repo.owner
     });
 
-    console.log(reviewers);
+    console.log(reviewers.requested_reviewers);
   } catch (error) {
     core.setFailed(error.message);
   }
