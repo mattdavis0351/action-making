@@ -1,6 +1,7 @@
 // const request = require("request-promise");
 const core = require("@actions/core");
-const github = require("@actions/github");
+// const github = require("@actions/github");
+const request = require("request-promise");
 const { WebClient } = require("@slack/web-api");
 
 // const web = new WebClient(process.env.SLACK_TOKEN);
@@ -15,15 +16,19 @@ async function run() {
     // const SLACK_CHANNEL = core.getInput("channel");
     const octokit = new github.GitHub(GITHUB_TOKEN);
 
-    // const options = {
-    //   channel: SLACK_CHANNEL,
-    //   text: ""
-    // };
+    const options = {
+      //   channel: SLACK_CHANNEL,
+      //   text: ""
+      method: "GET",
+      uri: `https://github.com/${process.env.GITHUB_ACTOR}/repos/${process.env.GITHUB_ACTOR}/${process.env.GITHUB_REPO}/pulls`,
+      auth: `token ${GITHUB_TOKEN}`
+    };
 
-    const reviewers = await octokit.issues.listForRepo({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo
-    });
+    // const reviewers = await octokit.issues.listForRepo({
+    //   owner: github.context.repo.owner,
+    //   repo: github.context.repo.repo
+    // });
+    const reviewers = await request(options);
     console.log(reviewers);
   } catch (err) {
     core.debug(err);
