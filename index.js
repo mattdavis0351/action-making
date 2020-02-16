@@ -20,9 +20,7 @@ async function run() {
     //   text: ""
     // };
 
-    const {
-      reviewers: { requested_reviewers }
-    } = await octokit.pulls.list({
+    const reviewers = await octokit.pulls.list({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo
     });
