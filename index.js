@@ -11,8 +11,8 @@ const { WebClient } = require("@slack/web-api");
 // const currentTime = new Date().toTimeString();
 async function run() {
   try {
-    const GITHUB_TOKEN = core.getInput("repo-token");
-    // const GITHUB_TOKEN = process.env.GITHUBTOKEN
+    // const GITHUB_TOKEN = core.getInput("repo-token");
+    const GITHUB_TOKEN = process.env.GITHUBTOKEN;
     const token = process.env.REPOTOKEN;
     // const SLACK_BOT_TOKEN = core.getInput("slackAuth");
     // const SLACK_CHANNEL = core.getInput("channel");
@@ -33,7 +33,7 @@ async function run() {
     // const reviewers
     console.log(reviewers);
   } catch (err) {
-    core.debug(err);
+    // core.debug(err);
   }
 }
 
